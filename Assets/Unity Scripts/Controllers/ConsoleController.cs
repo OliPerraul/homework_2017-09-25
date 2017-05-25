@@ -9,7 +9,9 @@ public class ConsoleController : MonoBehaviour
 {
     [SerializeField]
     private InputFieldController inputFieldController; //ref used to subscribe
-    
+
+    Script script;
+
 
     //TODO 
     //BEFORE SUBMIT READD ALL EXISTING OBJ TO THE TABLE WORLD
@@ -79,6 +81,8 @@ public class ConsoleController : MonoBehaviour
         //subscribe to submit event
         inputFieldController.InputFieldSubmitted += this.OnInputFieldSubmitted;
 
+        script = new Script();
+
     }
 	
     //event handling method
@@ -91,15 +95,20 @@ public class ConsoleController : MonoBehaviour
     void InterpreteContent(string inputField_code)
     {
         string scriptCode = existing_code + inputField_code;
-       
 
-        Script script = new Script();
 
+      
         script.DoString(scriptCode);
 
         //get the World table from the script
         Table luaTable_world = script.Globals.Get("world").Table;
-                
+
+
+        DynValue printed_value = script.Globals.Get("printed");
+        //debug
+        if (printed_value.IsNotNil())
+            Debug.Log(printed_value);
+
         CreateFromWorldTable(luaTable_world);
     }
 

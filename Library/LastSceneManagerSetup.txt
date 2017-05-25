@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Scriptable objects.unity
+- path: Assets/Scenes/Platformer/Scriptable objects.unity
   isLoaded: 1
   isActive: 1
