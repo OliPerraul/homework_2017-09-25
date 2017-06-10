@@ -12,6 +12,8 @@ public class ConsoleController : MonoBehaviour
 
     Script script;
 
+    private ScriptedEntity.SPAWN_TYPES spawn_type;
+
 
     //TODO 
     //BEFORE SUBMIT READD ALL EXISTING OBJ TO THE TABLE WORLD
@@ -86,24 +88,29 @@ public class ConsoleController : MonoBehaviour
     }
 	
     //event handling method
-    public void OnInputFieldSubmitted(string content)
+    public void OnInputFieldSubmitted(string content, ScriptedEntity.SPAWN_TYPES _spawn_type)
     {
-       InterpreteContent(content);
+        spawn_type = _spawn_type;
+        InterpreteContent(content);
         
     }
 
     void InterpreteContent(string inputField_code)
     {
         string scriptCode = existing_code + inputField_code;
-
-
-      
+              
         script.DoString(scriptCode);
 
+        //TODO OPTIMISE
+        //Insert sprites vars in global environemtn
+        foreach (KeyValuePair<string, Texture2D> entry in Global.sprite_database)
+        {
+            script.Globals[entry.Key] = entry.Key;
+        }
+        
         //get the World table from the script
         Table luaTable_world = script.Globals.Get("world").Table;
-
-
+                
         DynValue printed_value = script.Globals.Get("printed");
         //debug
         if (printed_value.IsNotNil())
@@ -125,7 +132,7 @@ public class ConsoleController : MonoBehaviour
             if (IsValidEntity(item))
             {
                 Table entity = item.Table; //pass in the entity table
-                GameObject scrEnt = ScriptedEntity.Create(entity);
+                GameObject scrEnt = ScriptedEntity.Create(entity, spawn_type);
                
             }
         }

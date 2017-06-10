@@ -84,17 +84,52 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Classes\EntityScript.cs" />
+    <Compile Include="Assets\Classes\Global.cs" />
     <Compile Include="Assets\Classes\Object Pool System\ObjectPool.cs" />
     <Compile Include="Assets\Classes\Object Pool System\ObjectPoolManager.cs" />
+    <Compile Include="Assets\Classes\Utils\MathUtils.cs" />
     <Compile Include="Assets\Classes\Utils\MoonShapUtils.cs" />
+    <Compile Include="Assets\Unity Scripts\Camera\DeadzoneCamera.cs" />
+    <Compile Include="Assets\Unity Scripts\Camera\PerfectPixel.cs" />
+    <Compile Include="Assets\Unity Scripts\Collectibles\CollectibleScript.cs" />
+    <Compile Include="Assets\Unity Scripts\Collectibles\CollectibleSprite.cs" />
     <Compile Include="Assets\Unity Scripts\Controllers\ConsoleController.cs" />
+    <Compile Include="Assets\Unity Scripts\Controllers\CursorController.cs" />
     <Compile Include="Assets\Unity Scripts\Controllers\InputFieldController.cs" />
+    <Compile Include="Assets\Unity Scripts\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Unity Scripts\Controllers\ScriptedEntityController.cs" />
+    <Compile Include="Assets\Unity Scripts\Controllers\SpriteEditorController.cs" />
+    <Compile Include="Assets\Unity Scripts\Mods\StandaloneInputModuleMod.cs" />
+    <Compile Include="Assets\Unity Scripts\Platformer\PhysicsObject.cs" />
     <Compile Include="Assets\Unity Scripts\ScriptedEntity\ScriptedEntity.cs" />
-    <Compile Include="Assets\Unity Scripts\UI\ColorCoder.cs" />
-    <Compile Include="Assets\Unity Scripts\UI\InputFieldMod.cs" />
-    <Compile Include="Assets\Unity Scripts\UI\LineNumbers.cs" />
-    <Compile Include="Assets\Unity Scripts\UI\ScrollbarMod.cs" />
+    <Compile Include="Assets\Unity Scripts\SpriteEditor\Brush.cs" />
+    <Compile Include="Assets\Unity Scripts\SpriteEditor\PixelCanvas.cs" />
+    <Compile Include="Assets\Unity Scripts\UI\Console\ColorCoder.cs" />
+    <Compile Include="Assets\Unity Scripts\UI\Console\InputFieldMod.cs" />
+    <Compile Include="Assets\Unity Scripts\UI\Console\LineNumbers.cs" />
+    <Compile Include="Assets\Unity Scripts\UI\Console\ScrollbarMod.cs" />
+    <Compile Include="Assets\Unity Scripts\UI\SpriteEditor\DynamicallyChangingContent.cs" />
+    <Compile Include="Assets\Unity Scripts\UI\SpriteEditor\SpriteIcon.cs" />
+    <Compile Include="Assets\Unity Scripts\UI\SpriteEditor\SpriteName.cs" />
+    <Compile Include="Assets\Unity Scripts\UI\TabbedPane\TabbedPanes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Plugins\Tiled2Unity\Imported\_ReadMe.txt" />
+    <None Include="Assets\Plugins\Tiled2Unity\Imported\map_cave1.tiled2unity.xml" />
+    <None Include="Assets\Plugins\Tiled2Unity\License.txt" />
+    <None Include="Assets\Plugins\Tiled2Unity\Materials\_ReadMe.txt" />
+    <None Include="Assets\Plugins\Tiled2Unity\Meshes\_ReadMe.txt" />
+    <None Include="Assets\Plugins\Tiled2Unity\Prefabs\_ReadMe.txt" />
+    <None Include="Assets\Plugins\Tiled2Unity\Shaders\Tiled2Unity.cginc" />
+    <None Include="Assets\Plugins\Tiled2Unity\Shaders\shaColorKey.shader" />
+    <None Include="Assets\Plugins\Tiled2Unity\Shaders\shaDefault.shader" />
+    <None Include="Assets\Plugins\Tiled2Unity\Shaders\shaDepth.shader" />
+    <None Include="Assets\Plugins\Tiled2Unity\Shaders\shaDepthColorKey.shader" />
+    <None Include="Assets\Plugins\Tiled2Unity\Shaders\shaDiffuseDepth.shader" />
+    <None Include="Assets\Plugins\Tiled2Unity\Shaders\shaTiledMap.shader" />
+    <None Include="Assets\Plugins\Tiled2Unity\Textures\_ReadMe.txt" />
+    <None Include="Assets\Plugins\Tiled2Unity\Tiled2Unity.export.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

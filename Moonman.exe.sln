@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonman.exe.CSharp.Plugins"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonman.exe.CSharp", "Moonman.exe.CSharp.csproj", "{9BDB3239-97C6-6056-8BA4-34F47CE9B2C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonman.exe.CSharp.Editor.Plugins", "Moonman.exe.CSharp.Editor.Plugins.csproj", "{16060481-EC92-B43F-1241-CD9353F35943}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{9BDB3239-97C6-6056-8BA4-34F47CE9B2C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BDB3239-97C6-6056-8BA4-34F47CE9B2C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BDB3239-97C6-6056-8BA4-34F47CE9B2C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16060481-EC92-B43F-1241-CD9353F35943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16060481-EC92-B43F-1241-CD9353F35943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16060481-EC92-B43F-1241-CD9353F35943}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16060481-EC92-B43F-1241-CD9353F35943}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

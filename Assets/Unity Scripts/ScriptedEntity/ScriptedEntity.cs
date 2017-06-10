@@ -6,6 +6,15 @@ using System;
 
 public class ScriptedEntity : MonoBehaviour
 {
+
+    
+    #region statics
+    static GameObject scriptedEntityController;
+    static GameObject prefab;
+    static Camera cam; //ref to camera
+    static GameObject player;
+    #endregion
+
     #region Dictionary lookup
     static Dictionary<int, string> builtIn_vars_lookup = new Dictionary<int, string>
     {
@@ -28,16 +37,10 @@ public class ScriptedEntity : MonoBehaviour
 
     };
 
-  
+
     #endregion
-    
-    #region GameObject properties
-      
-    //Main table
-    private Table entity_table;
-    //sorted tables
-    private Table builtIn_vars;
-    private Table player_defined_vars;
+
+    #region Entity properties
 
     //Dictionary Items
     private Closure entity_update { get; set; }
@@ -58,221 +61,246 @@ public class ScriptedEntity : MonoBehaviour
     public double originY { get; set; }
     public string type { get; set; }
     public bool visible { get; set; }
+    public Texture2D sprite { get; set; }
 
     #endregion
 
-    // Use this for initialization
-    void Start ()
+
+    //Components
+    SpriteRenderer spriteRend;
+
+    //Main table
+    private Table entity_table;
+
+    //spawn
+    private Vector3 spawn_pos; //final spawn pos
+
+    public enum SPAWN_TYPES
     {
+        TYPE_SCREEN_CENTER,
+        TYPE_MOUSE,
+        TYPE_PLAYER,
+
+    }
+
+    private SPAWN_TYPES spawn_type;
+
+
+
+    // Use this for initialization
+    void Start()
+    {
+        spriteRend = GetComponent<SpriteRenderer>();
+
+
+        DetermineSpawnPos(spawn_type);
+
         //assign dictionary items to instance properties     
         AssignBuiltInVars();
-        
+
         ////////////call the start function/////////////
         entity_start.Call(entity_table);
-        
-        //update dictionaries from table
-        TableToDictionaries();
 
         //assign dictionary items to instance properties     
         AssignBuiltInVars();
 
         //Behave according to Builtin vars
         ApplyBehaviour();
-        
+
+    }
+
+    void DetermineSpawnPos(SPAWN_TYPES _spawn_type)
+    {
+
+        switch (_spawn_type)
+        {
+            case SPAWN_TYPES.TYPE_SCREEN_CENTER:
+                spawn_pos = cam.ScreenToWorldPoint(new Vector3(cam.pixelWidth / 2, cam.pixelHeight / 2, cam.nearClipPlane));
+                break;
+            case SPAWN_TYPES.TYPE_MOUSE:
+                spawn_pos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cam.nearClipPlane));
+                break;
+            case SPAWN_TYPES.TYPE_PLAYER:
+                player = GameObject.Find("Player");
+                spawn_pos = player.transform.position;
+                break;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //assign dictionary items to instance properties     
-        AssignBuiltInVars();
-
-        //Update table with dic values
-        DictionariesToTable();
-
         /////////////////call update function//////////////////
         entity_update.Call(entity_table);
         ////////////////////////////////////
-
-        //update dictionaries from table
-        TableToDictionaries();
 
         //assign dictionary items to instance properties     
         AssignBuiltInVars();
 
         //Behave according to Builtin vars
         ApplyBehaviour();
-        
+
     }
 
     void AssignBuiltInVars()
     {
-        //uded to check
+        Debug.Log("");
+
+        //assign vars contained in table to class vars (for certain cases--not player defined vars)
         DynValue val = new DynValue();
 
-        if (TryGetValue(builtIn_vars, "update", out val))
-        entity_update = val.Function;
-        
-        if (TryGetValue(builtIn_vars, "start", out val))
+        if (TryGetValue(entity_table, "update", out val))
+            entity_update = val.Function;
+
+        if (TryGetValue(entity_table, "start", out val))
             entity_start = val.Function;
 
-        if (TryGetValue(builtIn_vars, "x", out val))
+        if (TryGetValue(entity_table, "x", out val))
             x = val.Number;
 
-        if (TryGetValue(builtIn_vars, "y", out val))
+        if (TryGetValue(entity_table, "y", out val))
             y = val.Number;
 
-        if (TryGetValue(builtIn_vars,"centerX", out val))
+        if (TryGetValue(entity_table, "centerX", out val))
             centerX = val.Number;
 
-        if (TryGetValue(builtIn_vars, "centerY", out val))
+        if (TryGetValue(entity_table, "centerY", out val))
             centerY = val.Number;
 
-        if (TryGetValue(builtIn_vars, "collidable", out val))
+        if (TryGetValue(entity_table, "collidable", out val))
             collidable = val.Boolean;
 
-        if (TryGetValue(builtIn_vars, "height", out val))
+        if (TryGetValue(entity_table, "height", out val))
             height = val.Number;
 
-        if (TryGetValue(builtIn_vars, "width", out val))
-           width = val.Number;
+        if (TryGetValue(entity_table, "width", out val))
+            width = val.Number;
 
-        if (TryGetValue(builtIn_vars, "layer", out val))
+        if (TryGetValue(entity_table, "layer", out val))
             layer = val.Number;
 
-        if (TryGetValue(builtIn_vars, "left", out val))
+        if (TryGetValue(entity_table, "left", out val))
             left = val.Number;
 
-        if (TryGetValue(builtIn_vars,"right", out val))
+        if (TryGetValue(entity_table, "right", out val))
             right = val.Number;
 
-        if (TryGetValue(builtIn_vars, "top", out val))
+        if (TryGetValue(entity_table, "top", out val))
             top = val.Number;
 
-        if (TryGetValue(builtIn_vars,"bottom", out val))
+        if (TryGetValue(entity_table, "bottom", out val))
             bottom = val.Number;
 
-        if (TryGetValue(builtIn_vars, "originX", out val))
-           originX  = val.Number;
+        if (TryGetValue(entity_table, "originX", out val))
+            originX = val.Number;
 
-        if (TryGetValue(builtIn_vars,"originY", out val))
+        if (TryGetValue(entity_table, "originY", out val))
             originY = val.Number;
 
-        if (TryGetValue(builtIn_vars, "type", out val))
+        if (TryGetValue(entity_table, "type", out val))
             type = val.String;
 
-        if (TryGetValue(builtIn_vars,"visible", out val))
+        if (TryGetValue(entity_table, "visible", out val))
             visible = val.Boolean;
 
-     }
+        if (TryGetValue(entity_table, "sprite", out val))
+        {
+            Texture2D tex;
+            if (Global.sprite_database.TryGetValue(val.String, out tex))
+            {
+                sprite = tex;
+            }
+           
+        }            
+                
+
+    }
+
     //helper method
-    static bool TryGetValue(Table table,string key, out DynValue val)
+    static bool TryGetValue(Table table, string key, out DynValue val)
     {
-       val = table.Get(key);
+        val = table.Get(key);
 
         if (val == null || val.IsNilOrNan())
             return false;
         else
             return true;
-                  
-     }
-    
+
+    }
+
     //apply defined behaviour
     void ApplyBehaviour()
     {
+        B_Origin();
+        B_Position();
+        B_Sprite();
+        B_Hitbox();
+
+    }
+
+    void B_Origin()
+    {
+        //GUI.DrawTexture()
+
+    }
+    
+    void B_Position()
+    {
         //update pos
         Vector3 pos = new Vector3((float)x, (float)y);
-        transform.position = pos;
+        transform.position = spawn_pos + pos;
+
+    }
+
+    void B_Sprite()
+    {
+        //update sprite
+        if(sprite != null)
+        spriteRend.sprite = Sprite.Create(sprite, new Rect(0f, 0f, sprite.width, sprite.height), new Vector2(0.5f, 0.5f), Global.PPU);
+
+    }
+
+    void B_Hitbox()
+    {
+        //GUI.DrawTexture()
 
     }
     
 
-    //Pass in Dictionaries values to entity table
-    void DictionariesToTable()
+    public static GameObject Create(Table entity_table, SPAWN_TYPES spawn_type)//custom init
     {
-        //pass in builtin into script
-        foreach (var key in builtIn_vars.Keys)
-        {
-            entity_table[key] = builtIn_vars[key];
-        }
-        //pass in player defined into script
-        foreach (var key in player_defined_vars.Keys)
-        {
-            entity_table[key] = player_defined_vars[key];
-        }
-        /////////////////
+        #region init statics
+        if (scriptedEntityController == null)
+            scriptedEntityController = GameObject.Find("ScriptedEntityController");
 
-    }
+        if (prefab == null)
+            prefab = Resources.Load("World/ScriptedEntity") as GameObject;
 
+        if (cam == null)
+            cam = Camera.main;
 
-    //Updates dictionaries based on table
-    void TableToDictionaries()
-    {
-        ////////retrieve builtin after update
-        foreach (var key in builtIn_vars.Keys)
-        {
-             builtIn_vars[key] = entity_table.Get(key);
-        }
-        //retrieve player defined after update
-        foreach (var key in player_defined_vars.Keys)
-        {
-            player_defined_vars[key] = entity_table.Get(key);
-        }
-        //////////////
-
-    }
+        if (player == null)
+            player = GameObject.Find("Player");
+        #endregion
 
 
-
-    public static GameObject Create(Table entity_table)//custom init
-    {
-        //find container
-        GameObject scriptedEntityController = GameObject.Find("ScriptedEntityController");
-
-        //begin creation
-        GameObject prefab = Resources.Load("ScriptedEntity") as GameObject;
+        //create from pool
         GameObject newObject = ObjectPoolManager.CreatePooled(prefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
-
-        newObject.name = prefab.name; //assign correct name
-        newObject.transform.SetParent(scriptedEntityController.transform);//assign parent
-
-        ScriptedEntity scriptedEntity = newObject.GetComponent<ScriptedEntity>(); //access main component
-        InitProperties(ref scriptedEntity, entity_table);
+        //assign correct name
+        newObject.name = prefab.name;
+        //assign parent
+        newObject.transform.SetParent(scriptedEntityController.transform);
+        //access main component
+        ScriptedEntity scriptedEntity = newObject.GetComponent<ScriptedEntity>(); 
+        //init main comp properties
+        scriptedEntity.spawn_type = spawn_type;//set spawn type
+        scriptedEntity.entity_table = entity_table;//set the entity table
+        //call start method with correct properties
+        newObject.SendMessage("Start", SendMessageOptions.DontRequireReceiver);
 
         return newObject;//return object after params are init
     }
     
-    static void InitProperties(ref ScriptedEntity scriptedEntity, Table entity_table)
-    {
-        Table player_defined_vars = new Table(entity_table.OwnerScript);
-        Table builtIn_vars = new Table(entity_table.OwnerScript);
-
-        //use look up table to sort built in vars from non
-        DeterminePlayerDefinedVars(entity_table, ref player_defined_vars, ref builtIn_vars);
-        
-        scriptedEntity.entity_table = entity_table;//set the entity table
-        scriptedEntity.player_defined_vars = player_defined_vars;//set vars
-        scriptedEntity.builtIn_vars = builtIn_vars;       
-    }
-
-    static void DeterminePlayerDefinedVars(Table entity_table, ref Table player_defined_vars, ref Table builtIn_vars)
-    {
-        //sort entity variables
-        foreach (var key in entity_table.Keys)
-        {
-             //get table item
-            DynValue item = entity_table.Get(key);
-
-            //add to correct table
-            if (builtIn_vars_lookup.ContainsValue(key.ToString()))
-            {
-                builtIn_vars.Set(key, item);
-            }
-            else
-                player_defined_vars.Set(key, item);
-        }
-    }
-
-
+    
 
 }

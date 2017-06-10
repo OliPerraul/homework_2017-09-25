@@ -45,7 +45,7 @@ public class ObjectPool : MonoBehaviour
 			obj.transform.parent = null;
 			obj.transform.position = position;
 			obj.transform.rotation = rotation;
-			obj.SetActiveRecursively( true );
+			obj.SetActive( true );
 
 			// Call Start again
 			obj.SendMessage( "Start", SendMessageOptions.DontRequireReceiver );
