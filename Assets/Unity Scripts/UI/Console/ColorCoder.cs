@@ -71,6 +71,10 @@ public class ColorCoder : MonoBehaviour
         color_coded_text = ColorCodeKeyword("tablelength", color_coded_text, color_builtin_func);
         color_coded_text = ColorCodeKeyword("new", color_coded_text, color_builtin_func);
         color_coded_text = ColorCodeKeyword("add", color_coded_text, color_builtin_func);
+        color_coded_text = ColorCodeKeyword("getplayerx", color_coded_text, color_builtin_func);
+        color_coded_text = ColorCodeKeyword("getplayery", color_coded_text, color_builtin_func);
+        color_coded_text = ColorCodeKeyword("getmousex", color_coded_text, color_builtin_func);
+        color_coded_text = ColorCodeKeyword("getmousey", color_coded_text, color_builtin_func);
         //built in (math)
         color_coded_text = ColorCodeKeyword("abs", color_coded_text, color_builtin_func);
         color_coded_text = ColorCodeKeyword("acos", color_coded_text, color_builtin_func);
@@ -102,8 +106,7 @@ public class ColorCoder : MonoBehaviour
         //Lua function
         color_coded_text = ColorCodeKeyword("pairs", color_coded_text, color_builtin_func);
         color_coded_text = ColorCodeKeyword("ipairs", color_coded_text, color_builtin_func);
-
-
+        
         color_coded_text = ColorCodeKeyword("if", color_coded_text, color_logic);
         color_coded_text = ColorCodeKeyword("then", color_coded_text, color_logic);
         color_coded_text = ColorCodeKeyword("end", color_coded_text, color_logic);
@@ -124,6 +127,12 @@ public class ColorCoder : MonoBehaviour
         color_coded_text = ColorCodeKeyword("type", color_coded_text, color_gameVars);
         color_coded_text = ColorCodeKeyword("visible", color_coded_text, color_gameVars);
         color_coded_text = ColorCodeKeyword("sprite", color_coded_text, color_gameVars);
+        color_coded_text = ColorCodeKeyword("hbwidth", color_coded_text, color_gameVars);
+        color_coded_text = ColorCodeKeyword("hbheight", color_coded_text, color_gameVars);
+        color_coded_text = ColorCodeKeyword("hboffsetx", color_coded_text, color_gameVars);
+        color_coded_text = ColorCodeKeyword("hboffsety", color_coded_text, color_gameVars);
+        color_coded_text = ColorCodeKeyword("originx", color_coded_text, color_gameVars);
+        color_coded_text = ColorCodeKeyword("originy", color_coded_text, color_gameVars);
         // color_coded_text = ColorCodeKeyword("world", color_coded_text, color_keyword_gameVars);
 
         //entity func
@@ -144,7 +153,7 @@ public class ColorCoder : MonoBehaviour
     //helper method (color single words)
     string ColorCodeKeyword(string keyword, string content, Color color)
     {
-        string colorTag = "<color=" + ColorToHexCode(color) + ">";
+        string colorTag = "<color=" + ColorUtils.ColorToHexCode(color) + ">";
 
         int keyword_index = -1;
 
@@ -183,6 +192,7 @@ public class ColorCoder : MonoBehaviour
             content[keyword_index + offset] == '=' ||
             content[keyword_index + offset] == '?' ||
             content[keyword_index + offset] == '\t' ||
+            content[keyword_index + offset] == '\r' ||
             content[keyword_index + offset] == '\n'))
                 {
                     keyword_index += offset;//adjust index
@@ -214,6 +224,7 @@ public class ColorCoder : MonoBehaviour
                 content[keyword_index - 1] == '>' ||
                 content[keyword_index - 1] == '=' ||
                 content[keyword_index - 1] == '\t' ||
+                content[keyword_index - 1] == '\r' ||
                 content[keyword_index - 1] == '\n'))
                 {
                     keyword_index += offset;//adjust index
@@ -235,7 +246,7 @@ public class ColorCoder : MonoBehaviour
 
     string ColorCodeComments(string content, Color color)
     {
-        string colorTag = "<color=" + ColorToHexCode(color) + ">";
+        string colorTag = "<color=" + ColorUtils.ColorToHexCode(color) + ">";
 
         string comment = "--";
         string closeTag = "</color>";
@@ -270,15 +281,6 @@ public class ColorCoder : MonoBehaviour
 
         return content;
     }
-
-    string ColorToHexCode(Color32 color)
-    {
-        string hex = "#" + color.r.ToString("X2") + color.g.ToString("X2") + color.b.ToString("X2");
-        return hex;
-    }
-
-
-
 
 
 }

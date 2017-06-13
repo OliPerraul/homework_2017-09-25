@@ -94,7 +94,7 @@ update = function(self)
 self.spd =self.spd+.01;
 self.x = self.x+self.spd;
 
-self.y = sin(self.spd)*sin(self.x);
+self.y = sin(self.spda)*sin(self.x);
 
 end
 
@@ -104,5 +104,92 @@ b = new(Bullet);
 
 add(b);
 
+
+
+--Orbitting
+Bullet = 
+{
+sprite = spr_new;
+x =0,
+y=0,
+
+a =0,
+
+start = function(self)
+end,
+
+
+update = function(self) 
+
+self.a = self.a+ 0.1;
+
+self.x  =  cos(self.a)*getplayerx()-sin(self.a)*(getplayery());
+self.y  =  sin(self.a)*getplayerx()+cos(self.a)*(getplayery());
+end
+
+}
+
+b = new(Bullet);
+
+add(b);
+
+
+--Small sin
+Bullet = 
+{
+sprite = spr_new;
+x =getplayerx(),
+y=getplayery()+5,
+
+a =0,
+
+start = function(self)
+end,
+
+
+update = function(self) 
+
+startx = getplayerx();
+starty = getplayery()+5;
+
+self.a = self.a+ 0.01;
+
+self.x  =  cos(self.a)*(startx-getplayerx())-sin(self.a)*(starty-getplayery())+getplayerx();
+self.y  = sin(self.a)*(startx-getplayerx())+cos(self.a)*(starty-getplayery())+getplayery();
+end
+
+}
+
+b = new(Bullet);
+
+add(b);
+
+
+---REGULAR
+
+--Small sin
+Bullet = 
+{
+sprite = spr_new,
+type = "bullet",
+x =getmousex(),
+y=getmousey(),
+spd =0,
+
+start = function(self)
+end,
+
+
+update = function(self) 
+
+self.spd =self.spd+.01;
+self.x = self.x+self.spd;
+end
+
+}
+
+b = new(Bullet);
+
+add(b);
 
 

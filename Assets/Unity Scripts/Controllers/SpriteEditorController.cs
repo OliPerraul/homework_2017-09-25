@@ -8,8 +8,8 @@ public class SpriteEditorController : MonoBehaviour
 {
 
     private PixelCanvas pixelCanvas;
-   
 
+      
     // Use this for initialization
     void Start()
     {
@@ -49,6 +49,39 @@ public class SpriteEditorController : MonoBehaviour
         }
                    
     }
+    
+    //event handling method
+    //key
+    //width, height
+    public void SaveDimensions(string spr_name, int width, int height)
+    {
+        Texture2D tmp;
+        Global.sprite_database.TryGetValue(spr_name, out tmp);
+
+        var old_pixels = tmp.GetPixels32(); //ref to old pixels
+      
+        //Create a new array of pixels
+        var new_pixels = new Color32[width * height];
+        for (int i = 0; i < new_pixels.Length; i++)
+        {
+            try//if pixels match store old one: else clear
+            {
+                new_pixels[i] = old_pixels[i];
+            }
+            catch 
+            {
+                new_pixels[i] = Color.clear;
+            }
+        }
+
+
+        tmp.Resize(width, height);
+        tmp.SetPixels32(new_pixels);
+        
+        tmp.Apply();
+
+          
+    }
 
     //event handling method when icon clicked
     public void SelectSprite()
@@ -61,7 +94,11 @@ public class SpriteEditorController : MonoBehaviour
         Texture2D tex;
         Global.sprite_database.TryGetValue(spr_name, out tex);
 
-        pixelCanvas.SetCurrTex(tex);
+
+        pixelCanvas.SetCurrEditedTex(tex);
+        pixelCanvas.AdjustColliderDimensions();
+
+       
     }
 
 

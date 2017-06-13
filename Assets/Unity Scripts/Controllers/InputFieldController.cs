@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class InputFieldController : MonoBehaviour {
@@ -59,6 +60,8 @@ public class InputFieldController : MonoBehaviour {
     //Event publisher method
     protected virtual void OnSubmitted()
     {
+        EventSystem.current.SetSelectedGameObject(null);
+
         if (InputFieldSubmitted != null)
         {
             //broadcast event

@@ -7,6 +7,8 @@ public class SpriteName : MonoBehaviour
 {
     InputField inputField;
     string previous_name;//used to access old location in dictionary
+    public string name { get { return previous_name; } }
+
 
     SpriteEditorController spriteEditorCtrl;
    

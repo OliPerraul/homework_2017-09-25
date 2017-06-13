@@ -11,5 +11,10 @@ public class MathUtils
         return Mathf.Round(value / factor) * factor;
     }
 
+    public static bool IsBetween(int numberToCheck, int bottom, int top)
+    {
+        return (numberToCheck >= bottom && numberToCheck <= top);
+    }
+
 
 }

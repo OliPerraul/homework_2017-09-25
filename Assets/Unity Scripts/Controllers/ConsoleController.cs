@@ -85,6 +85,8 @@ public class ConsoleController : MonoBehaviour
 
         script = new Script();
 
+        RegisterLuaFunctions(script);
+
     }
 	
     //event handling method
@@ -100,8 +102,9 @@ public class ConsoleController : MonoBehaviour
         string scriptCode = existing_code + inputField_code;
               
         script.DoString(scriptCode);
+        
 
-        //TODO OPTIMISE
+        //TODO OPTIMISE by inserting only when database is changed
         //Insert sprites vars in global environemtn
         foreach (KeyValuePair<string, Texture2D> entry in Global.sprite_database)
         {
@@ -170,5 +173,54 @@ public class ConsoleController : MonoBehaviour
 
     }
 
-        
+    #region Functions called from lua
+    /////
+    private static void RegisterLuaFunctions(Script aLuaScript)
+    {
+        aLuaScript.Globals["getplayerx"] = (Func<float>)GetPlayerXFunction;
+        aLuaScript.Globals["getplayery"] = (Func<float>)GetPlayerYFunction;
+        aLuaScript.Globals["getmousex"] = (Func<float>)GetMouseXFunction;
+        aLuaScript.Globals["getmousey"] = (Func<float>)GetMouseYFunction;
+
+    }
+
+    private static float GetPlayerXFunction()
+    {
+       GameObject player = GameObject.Find("Player");
+       float x = player.transform.position.x;
+
+        return x;
+    }
+
+    private static float GetPlayerYFunction()
+    {
+        GameObject player = GameObject.Find("Player");
+        float y = player.transform.position.y;
+
+        return y;
+    }
+
+    private static float GetMouseXFunction()
+    {
+        Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+        float x = pos.x;
+
+        return x;
+    }
+
+
+    private static float GetMouseYFunction()
+    {
+        Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+        float y = pos.y;
+
+        return y;
+    }
+    
+
+    //
+    #endregion
+
+
+
 }

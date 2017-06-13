@@ -14,8 +14,11 @@ public class SpriteIcon : MonoBehaviour
     static SpriteEditorController spriteEditorCtrl;
 
     public Sprite sprite;
+    public string sprite_name;
+    
     private Button button;
     private InputField inputField;
+    private SpriteName spriteName;
 
     void Start()
     {
@@ -34,6 +37,10 @@ public class SpriteIcon : MonoBehaviour
 
     void Update()
     {
+        //set sprite name
+        sprite_name = spriteName.name;
+                
+        
         //set icon image on the fly
         if (selected.Equals(gameObject.name))
         {
@@ -76,6 +83,7 @@ public class SpriteIcon : MonoBehaviour
         #region init instance properties
         spriteIcon.button = spriteIcon.GetComponent<Button>();
         spriteIcon.inputField = spriteIcon.GetComponentInChildren<InputField>();
+        spriteIcon.spriteName = spriteIcon.GetComponentInChildren<SpriteName>();
         //..
         //..
         #endregion

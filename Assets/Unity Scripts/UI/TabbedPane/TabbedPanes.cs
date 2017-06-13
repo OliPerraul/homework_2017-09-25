@@ -15,11 +15,18 @@ public class TabbedPanes : MonoBehaviour
     [SerializeField]
     private GameObject panel3;
 
+
+    [SerializeField]
+    private GameObject colorPalette;
+
     // Use this for initialization
     void Start ()
     {
-		
-	}
+        panel1.SetActive(true);
+        panel2.SetActive(false);
+        panel3.SetActive(false);
+        colorPalette.SetActive(false);
+    }
     
     public void SetCurrentTab()
     {
@@ -32,6 +39,7 @@ public class TabbedPanes : MonoBehaviour
                     panel1.SetActive(true);
                     panel2.SetActive(false);
                     panel3.SetActive(false);
+                    colorPalette.SetActive(false);
 
                     break;
 
@@ -39,12 +47,14 @@ public class TabbedPanes : MonoBehaviour
                     panel1.SetActive(false);
                     panel2.SetActive(true);
                     panel3.SetActive(false);
+                    colorPalette.SetActive(false);
                     break;
 
                 case "Tab3":
                     panel1.SetActive(false);
                     panel2.SetActive(false);
                     panel3.SetActive(true);
+                    colorPalette.SetActive(true);
                     break;
 
             }

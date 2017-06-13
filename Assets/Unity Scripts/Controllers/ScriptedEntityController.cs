@@ -20,7 +20,7 @@ public class ScriptedEntityController : MonoBehaviour
 	void Update ()
     {
         //force center
-        transform.position = new Vector3(0, 0, 0);
+        //transform.position = new Vector3(0, 0, 0);
         
          num_entities = transform.childCount;
                         

@@ -9,12 +9,24 @@ public class PlayerController : PhysicsObject
     public float max_spd = 7;
 
     private SpriteRenderer sprRend;
+    private SpriteAnimator spriteAnimator;
     private Animator animator;
 
+
+    //Health System
+    private HealtBar healthBar;
+    private int health;
+    
+    
+    
 	// Use this for initialization
 	void Awake ()
     {
+        healthBar = GameObject.Find("HealthBar").GetComponent<HealtBar>(); 
+
         sprRend = GetComponent<SpriteRenderer>();
+        spriteAnimator = GetComponent<SpriteAnimator>();
+
        // animator = GetComponent<Animator>();
 	}
 
@@ -55,15 +67,27 @@ public class PlayerController : PhysicsObject
             sprRend.flipX = !sprRend.flipX;
 
         }
-        
 
-       // animator.SetBool("grounded", grounded);
-        //animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / max_spd);
+        float velx = Mathf.Abs(velocity.x);
+
+        if (velx > 0 && velx < max_spd)
+            spriteAnimator.Play("walk", true, 0);
+        else if (velx > 0)
+            spriteAnimator.Play("run", true, 0);
+        else spriteAnimator.Play("idle", true, 0);
+
 
     }
 
 
+    public void GetHurt()
+    {
+        health--;
 
+        
+
+    }
+    
 
 
 }
