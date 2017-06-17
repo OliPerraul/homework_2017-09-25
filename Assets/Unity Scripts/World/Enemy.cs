@@ -14,10 +14,13 @@ public class Enemy : MonoBehaviour {
 
     [SerializeField]
     private float move_speed = .002f;
-    
-    
+
+    [SerializeField]
+    public float damage = .01f;
+
+
     // Use this for initialization
-	void Start ()
+    void Start ()
     {
         spriteAnimator = GetComponent<SpriteAnimator>();
         player = GameObject.Find("Player");

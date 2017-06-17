@@ -98,15 +98,20 @@
     <Compile Include="Assets\Unity Scripts\Controllers\ConsoleController.cs" />
     <Compile Include="Assets\Unity Scripts\Controllers\CursorController.cs" />
     <Compile Include="Assets\Unity Scripts\Controllers\EnemySpawnerController.cs" />
+    <Compile Include="Assets\Unity Scripts\Controllers\EntityEditorController.cs" />
     <Compile Include="Assets\Unity Scripts\Controllers\InputFieldController.cs" />
-    <Compile Include="Assets\Unity Scripts\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Unity Scripts\Controllers\ScriptedEntityController.cs" />
     <Compile Include="Assets\Unity Scripts\Controllers\SpriteEditorController.cs" />
+    <Compile Include="Assets\Unity Scripts\MasterControlProgram.cs" />
     <Compile Include="Assets\Unity Scripts\Mods\StandaloneInputModuleMod.cs" />
+    <Compile Include="Assets\Unity Scripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\Unity Scripts\UI\Console\ColorCoder.cs" />
     <Compile Include="Assets\Unity Scripts\UI\Console\InputFieldMod.cs" />
     <Compile Include="Assets\Unity Scripts\UI\Console\LineNumbers.cs" />
     <Compile Include="Assets\Unity Scripts\UI\Console\ScrollbarMod.cs" />
+    <Compile Include="Assets\Unity Scripts\UI\EntityEditor\BackButton.cs" />
+    <Compile Include="Assets\Unity Scripts\UI\EntityEditor\EntityIcon.cs" />
+    <Compile Include="Assets\Unity Scripts\UI\EntityEditor\EntityName.cs" />
     <Compile Include="Assets\Unity Scripts\UI\HealthBar.cs" />
     <Compile Include="Assets\Unity Scripts\UI\SpriteEditor\Brush.cs" />
     <Compile Include="Assets\Unity Scripts\UI\SpriteEditor\ColorButton.cs" />
@@ -120,8 +125,8 @@
     <Compile Include="Assets\Unity Scripts\Utils\SpriteAnimator.cs" />
     <Compile Include="Assets\Unity Scripts\World\Enemy.cs" />
     <Compile Include="Assets\Unity Scripts\World\PhysicsObject.cs" />
+    <Compile Include="Assets\Unity Scripts\World\Player.cs" />
     <Compile Include="Assets\Unity Scripts\World\ScriptedEntity.cs" />
-    <Compile Include="Assets\testScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\Tiled2Unity\Imported\_ReadMe.txt" />
@@ -139,7 +144,9 @@
     <None Include="Assets\Plugins\Tiled2Unity\Shaders\shaTiledMap.shader" />
     <None Include="Assets\Plugins\Tiled2Unity\Textures\_ReadMe.txt" />
     <None Include="Assets\Plugins\Tiled2Unity\Tiled2Unity.export.txt" />
-    <None Include="Assets\Shaders\Cropped.shader" />
+    <None Include="Assets\shaders\Sprites-Flash.shader" />
+    <None Include="Assets\shaders\Sprites-Glitch.shader" />
+    <None Include="Assets\shaders\Sprites-HidePercent.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

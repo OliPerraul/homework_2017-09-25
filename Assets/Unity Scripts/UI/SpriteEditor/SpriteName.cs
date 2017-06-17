@@ -63,7 +63,7 @@ public class SpriteName : MonoBehaviour
                     index++;
             }
 
-           return AdjustNameWithIndex(name + "(" + index + ")");
+           return AdjustNameWithIndex(name + index);
             
         }
         else

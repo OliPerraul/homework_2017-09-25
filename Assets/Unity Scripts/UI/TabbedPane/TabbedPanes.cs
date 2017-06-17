@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class TabbedPanes : MonoBehaviour
 {
+
     [SerializeField]
     private GameObject panel1;
 
@@ -18,17 +19,19 @@ public class TabbedPanes : MonoBehaviour
 
     [SerializeField]
     private GameObject colorPalette;
+    
 
-    // Use this for initialization
-    void Start ()
+// Use this for initialization
+void Start()
     {
         panel1.SetActive(true);
         panel2.SetActive(false);
         panel3.SetActive(false);
         colorPalette.SetActive(false);
     }
-    
-    public void SetCurrentTab()
+
+
+public void SetCurrentTab()
     {
         var go = EventSystem.current.currentSelectedGameObject;
         if (go != null)
@@ -59,7 +62,7 @@ public class TabbedPanes : MonoBehaviour
 
             }
 
-        }             
+        }
     }
 
 

@@ -40,9 +40,9 @@ public class PhysicsObject : MonoBehaviour
         contactFilter.useLayerMask = true;//use layer mask of actual physics object (built in physics obj)
         
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    protected virtual void Update ()
     {
         target_velocity = Vector2.zero; //make sure we are not using target velocity from the prev frame
         ComputeVelocity();

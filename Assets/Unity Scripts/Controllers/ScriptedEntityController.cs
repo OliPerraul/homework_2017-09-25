@@ -14,7 +14,7 @@ public class ScriptedEntityController : MonoBehaviour
     /// Max num of entities
     /// </summary>
     [SerializeField]
-    private int max_entities = 10;
+    private int max_entities = 4;
  	    
     // Update is called once per frame
 	void Update ()
@@ -28,7 +28,7 @@ public class ScriptedEntityController : MonoBehaviour
         if (transform.childCount > max_entities)
         {
             GameObject child = transform.GetChild(0).gameObject;
-            ObjectPoolManager.DestroyPooled(child);
+            child.GetComponent<ScriptedEntity>().DestroyEntity();
 
         }
 

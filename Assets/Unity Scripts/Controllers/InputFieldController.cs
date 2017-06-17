@@ -11,11 +11,9 @@ public class InputFieldController : MonoBehaviour {
     [SerializeField]
     private Text content;
 
-    public delegate void InputFieldSubmittedEventHandler(string content, ScriptedEntity.SPAWN_TYPES spawn_type);
+    public delegate void InputFieldSubmittedEventHandler(string content);
     public event InputFieldSubmittedEventHandler InputFieldSubmitted; //event
-
-    ScriptedEntity.SPAWN_TYPES spawn_type;
-
+    
     // Use this for initialization
     void Start ()
     {
@@ -42,14 +40,12 @@ public class InputFieldController : MonoBehaviour {
         if ((Input.GetKeyDown(KeyCode.Return) && Input.GetKey(KeyCode.LeftControl))
          || (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Return)))
         {
-            spawn_type = ScriptedEntity.SPAWN_TYPES.TYPE_PLAYER;
-            return true;
+             return true;
         }
         else if (((Input.GetMouseButtonDown(0)) && Input.GetKey(KeyCode.LeftControl))
         || (Input.GetKey(KeyCode.LeftControl) && Input.GetMouseButtonDown(0)))
         {
-            spawn_type = ScriptedEntity.SPAWN_TYPES.TYPE_MOUSE;
-            return true;
+             return true;
         }
 
 
@@ -65,7 +61,7 @@ public class InputFieldController : MonoBehaviour {
         if (InputFieldSubmitted != null)
         {
             //broadcast event
-            InputFieldSubmitted(inputField.text, spawn_type);
+            InputFieldSubmitted(inputField.text);
         }
               
     }//end

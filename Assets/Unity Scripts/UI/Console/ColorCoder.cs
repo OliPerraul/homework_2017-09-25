@@ -25,6 +25,8 @@ public class ColorCoder : MonoBehaviour
     private Color color_builtin_func = Color.red;
     [SerializeField]
     private Color color_sprite_names = Color.grey;
+    [SerializeField]
+    private Color color_entity_names = Color.grey;
 
 
     [SerializeField]
@@ -62,7 +64,7 @@ public class ColorCoder : MonoBehaviour
     }
 
     //color code the content of the input field
-    void ColorCode()
+    public void ColorCode()
     {
         //color code "function"
         color_coded_text = ColorCodeComments(content.text, color_comments);
@@ -144,6 +146,12 @@ public class ColorCoder : MonoBehaviour
         foreach (KeyValuePair<string, Texture2D> entry in Global.sprite_database)
         {
             color_coded_text = ColorCodeKeyword(entry.Key, color_coded_text, color_sprite_names);
+        }
+
+        //color code entity names
+        foreach (KeyValuePair<string, EntityScript> entry in Global.entity_database)
+        {
+            color_coded_text = ColorCodeKeyword(entry.Key, color_coded_text, color_entity_names);
         }
 
 

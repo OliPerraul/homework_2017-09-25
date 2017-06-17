@@ -41,21 +41,13 @@ public class ScriptedEntity : MonoBehaviour
 
     //Main table
     private Table entity_table;
+    [SerializeField]
+    private int id;
 
     //spawn
     private Vector3 spawn_pos; //final spawn pos
-
-    public enum SPAWN_TYPES
-    {
-        TYPE_SCREEN_CENTER,
-        TYPE_MOUSE,
-        TYPE_PLAYER,
-
-    }
-
-    public SPAWN_TYPES spawn_type;
+      
     
-
     // Use this for initialization
     void Start()
     {
@@ -96,7 +88,7 @@ public class ScriptedEntity : MonoBehaviour
 
     void AssignBuiltInVars()
     {
-        Debug.Log("");
+       // Debug.Log("");
 
         //assign vars contained in table to class vars (for certain cases--not player defined vars)
         DynValue val = new DynValue();
@@ -139,6 +131,7 @@ public class ScriptedEntity : MonoBehaviour
 
         if (TryGetValue(entity_table, "sprite", out val))
         {
+
             Texture2D tex;
             if (Global.sprite_database.TryGetValue(val.String, out tex))
             {
@@ -272,19 +265,52 @@ public class ScriptedEntity : MonoBehaviour
         switch (type)
         {
             case "bullet":
-                if(other.tag != "ScriptedEntity")
-                ObjectPoolManager.DestroyPooled(gameObject);
+                if (other.tag != "ScriptedEntity")
+                {
+                    DestroyEntity();
+                }
 
                 break;
-
-
+                
         }
 
 
     }
 
+    public void DestroyEntity()
+    {
+       
+        //remove from world
+        DynValue item = new DynValue();//used to iterate
+        int _id;
+        DynValue _key = new DynValue();
 
-    public static GameObject Create(Table entity_table, SPAWN_TYPES spawn_type)//custom init
+        //look in world for same id 
+        foreach (var key in Global.world.Keys)
+        {
+            item = Global.world.Get(key); //get table item
+            _id = item.ReferenceID;
+
+            if (id == _id)//destroy
+            {
+                _key = key;
+                break;
+            }
+        }
+
+        
+        Global.world.Remove(_key);
+        Global.world_added.Remove(id);
+
+        Global.FLAG = true;
+
+        ObjectPoolManager.DestroyPooled(gameObject);
+    }
+
+
+
+
+    public static GameObject Create(Table entity_table, int id)//custom init
     {
         #region init statics
         if (scriptedEntityController == null)
@@ -303,14 +329,16 @@ public class ScriptedEntity : MonoBehaviour
         //create from pool
         GameObject newObject = ObjectPoolManager.CreatePooled(prefab, Vector3.zero, Quaternion.Euler(0, 0, 0));
         //assign correct name
-        newObject.name = prefab.name;
+        newObject.name = id.ToString();
         //assign parent
         newObject.transform.SetParent(scriptedEntityController.transform);
         //access main component
         ScriptedEntity scriptedEntity = newObject.GetComponent<ScriptedEntity>(); 
+      
         //init main comp properties
-        scriptedEntity.spawn_type = spawn_type;//set spawn type
         scriptedEntity.entity_table = entity_table;//set the entity table
+        scriptedEntity.id = id;
+
         //call start method with correct properties
         newObject.SendMessage("Start", SendMessageOptions.DontRequireReceiver);
 
