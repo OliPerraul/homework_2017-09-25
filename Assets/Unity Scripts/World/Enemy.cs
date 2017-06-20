@@ -19,6 +19,35 @@ public class Enemy : MonoBehaviour {
     public float damage = .01f;
 
 
+    //Loot system//
+
+        //rates
+    [SerializeField]
+    [Range(0,1)]
+    protected float drop_rate_entities = .2f;
+
+    [SerializeField]
+    [Range(0, 1)]
+    protected float drop_rate_sprites = .2f;
+
+    [SerializeField]
+    [Range(0, 1)]
+    protected float drop_rate_health = .2f;
+
+        //ammounts
+    [SerializeField]
+    [Range(1, 5)]
+    public int drop_amount_entities = 5;
+
+    [SerializeField]
+    [Range(1, 5)]
+    public int drop_amount_sprites = 5;
+
+    [SerializeField]
+    [Range(1, 5)]
+    public int drop_amount_health = 5;
+
+
     // Use this for initialization
     void Start ()
     {
@@ -51,9 +80,30 @@ public class Enemy : MonoBehaviour {
         if (scrEnt != null)
         {
             if (scrEnt.type.Equals("bullet"))
-                ObjectPoolManager.DestroyPooled(gameObject);
+                Killed(); //TODO DAMAGED FIRST
         }
     }
+
+    void Killed()
+    {
+        DropLoot();
+        ObjectPoolManager.DestroyPooled(gameObject);
+    }
+
+    void DropLoot()//Override function to drop specific
+    {
+        DropProperties dropProp = new DropProperties();
+        dropProp.drop_rate_entities =drop_rate_entities;
+        dropProp.drop_rate_sprites = drop_rate_sprites;
+        dropProp.drop_rate_health =  drop_rate_health;
+
+        dropProp.amount_entities = Random.Range(1, drop_amount_entities);
+        dropProp.amount_sprites = Random.Range(1, drop_amount_sprites);
+        dropProp.amount_health = Random.Range(1, drop_amount_health);
+
+        CollectiblesController.DropRandom(transform.position, dropProp);
+    }
+
 
 
 

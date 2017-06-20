@@ -72,7 +72,7 @@ public class MasterControlProgram : MonoBehaviour
 
      ";
 
-    
+
 
     void Awake()
     {
@@ -82,7 +82,124 @@ public class MasterControlProgram : MonoBehaviour
         //get the World table from the script
         Global.world = Global.main_script.Globals.Get("world").Table;
         RegisterLuaFunctions();
-            
+
+        //Collectibles template initizlization
+
+        #region template entities
+        //Entities
+        List<string> collectible_ent_codes = new List<string>(new string[] {
+@"Bullet=
+{
+sprite = spr_new,
+x = getmousex(),
+y = getmousey(),
+
+-- Use this for initialization    
+start = function(self)
+end,
+
+-- Update is called once per frame
+update = function(self)
+end,
+
+}",
+@"Orbit=
+{
+sprite = spr_new,
+x = getmousex(),
+y = getmousey(),
+
+-- Use this for initialization    
+start = function(self)
+end,
+
+-- Update is called once per frame
+update = function(self)
+end,
+
+}",
+@"Solid=
+{
+sprite = spr_new,
+x = getmousex(),
+y = getmousey(),
+
+-- Use this for initialization    
+start = function(self)
+end,
+
+-- Update is called once per frame
+update = function(self)
+end,
+
+}",
+@"RocketUp=
+{
+sprite = spr_new,
+x = getmousex(),
+y = getmousey(),
+
+-- Use this for initialization    
+start = function(self)
+end,
+
+-- Update is called once per frame
+update = function(self)
+end,
+
+}",
+@" Static=
+{
+sprite = spr_new,
+x = getmousex(),
+y = getmousey(),
+
+-- Use this for initialization    
+start = function(self)
+end,
+
+-- Update is called once per frame
+update = function(self)
+end,
+
+}",
+@" Wave=
+{
+sprite = spr_new,
+x = getmousex(),
+y = getmousey(),
+
+-- Use this for initialization    
+start = function(self)
+end,
+
+-- Update is called once per frame
+update = function(self)
+end,
+
+}",
+});
+        //create from code and add to the database
+        foreach (string code in collectible_ent_codes)
+        {
+            EntityScript entity = new EntityScript(code);
+            Global.template_entity_database.Add(entity.name, entity);
+        }
+        //end entities
+        #endregion
+
+        #region template sprites
+        Texture2D[] template_textures = Resources.LoadAll<Texture2D>("Sprites/TemplateSprites");
+
+        foreach (Texture2D tex in template_textures)
+        {
+            Global.template_sprite_database.Add(tex.name, tex);
+
+        }
+        #endregion
+
+
+
     }
 
 

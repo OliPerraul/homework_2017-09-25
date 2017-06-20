@@ -78,11 +78,17 @@ public class ColorPalette : MonoBehaviour {
 #000000";
 
 
+    private string colors_string_small = @"
+#E40058
+#FCA044
+#6844FC
+#FFFFFF";
+
 
     // Use this for initialization
     void Start()
     {
-        color_codes = colors_string.Split('\n');
+        color_codes = colors_string_small.Split('\n');
 
         GameObject prefab = Resources.Load("UI/ColorButton") as GameObject;
 

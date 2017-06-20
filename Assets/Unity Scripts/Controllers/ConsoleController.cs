@@ -44,9 +44,7 @@ public class ConsoleController : MonoBehaviour
             Global.main_script.Globals[entry.Key] = entity.table;
         }
 
-        if (Global.FLAG)
-            Debug.Log("");
-        
+            
         string scriptCode = inputField_code;
 
         Global.main_script.DoString(scriptCode);
@@ -90,29 +88,5 @@ public class ConsoleController : MonoBehaviour
         
     }
 
-    List<int> IdsFromTable(Table t)
-    {
-        List<int> ids  = new List<int>();
-
-        foreach (var key in t.Keys)
-        {
-            DynValue item = t.Get(key); //get table item
-
-            if (EntityScript.IsValidEntity(item))
-            {
-                int id = item.ReferenceID;
-                Table entity = item.Table; //pass in the entity table
-
-                ids.Add(id);
-
-            }
-
-
-        }
-
-        return ids;
-
-    }
-
- 
+  
 }

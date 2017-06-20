@@ -271,10 +271,8 @@ public class ScriptedEntity : MonoBehaviour
                 }
 
                 break;
-                
         }
-
-
+        
     }
 
     public void DestroyEntity()
@@ -302,14 +300,10 @@ public class ScriptedEntity : MonoBehaviour
         Global.world.Remove(_key);
         Global.world_added.Remove(id);
 
-        Global.FLAG = true;
-
         ObjectPoolManager.DestroyPooled(gameObject);
     }
 
-
-
-
+    
     public static GameObject Create(Table entity_table, int id)//custom init
     {
         #region init statics

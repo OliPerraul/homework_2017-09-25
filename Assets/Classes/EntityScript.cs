@@ -8,6 +8,26 @@ public class EntityScript
     public Table table { get; set; }
     public string code { get; set; }
     public string name { get; set; }
+
+
+    public EntityScript(string _code)
+    {
+        name = GetEntityNameFromCode(_code);
+        code = _code;
+
+        //ref to sprite database
+        AddSpriteReference();
+
+        Global.main_script.DoString(code);
+        //try else the entity class is invalid (TODO)
+        DynValue val = Global.main_script.Globals.Get(name);
+
+        if (IsValidEntity(val))
+            table = val.Table;
+        else
+            table = null;
+
+    }
     
     public EntityScript(string _code, string _name)
     {
@@ -98,8 +118,16 @@ public class EntityScript
         return true;
 
     }
-        
 
+    public static string GetEntityNameFromCode(string code)
+    {
+        //get new name if changed via code
+        int index = code.IndexOf("=");
+        string name = code.Substring(0, index);
+        name = name.Replace(" ", "");//remove white space
+
+        return name;
+    }
    
     /// /TODO PUT SOMEWHERE ELSE
   

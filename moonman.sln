@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moonman.CSharp", "moonman.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moonman.CSharp.Editor.Plugins", "moonman.CSharp.Editor.Plugins.csproj", "{1AD8AE6C-DB98-F891-6238-FECF8272AC64}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moonman.CSharp.Editor", "moonman.CSharp.Editor.csproj", "{1BD5F849-9A01-0224-8A47-2378CFD18A5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{1AD8AE6C-DB98-F891-6238-FECF8272AC64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AD8AE6C-DB98-F891-6238-FECF8272AC64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AD8AE6C-DB98-F891-6238-FECF8272AC64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BD5F849-9A01-0224-8A47-2378CFD18A5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD5F849-9A01-0224-8A47-2378CFD18A5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD5F849-9A01-0224-8A47-2378CFD18A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BD5F849-9A01-0224-8A47-2378CFD18A5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

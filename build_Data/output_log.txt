@@ -17,74 +17,14 @@ Platform assembly: C:\Users\Eurocolt\Documents\GitHub\moonman\build_Data\Managed
 Loading C:\Users\Eurocolt\Documents\GitHub\moonman\build_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\Eurocolt\Documents\GitHub\moonman\build_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Eurocolt\Documents\GitHub\moonman\build_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.056 seconds
+- Completed reload, in  0.042 seconds
 Platform assembly: C:\Users\Eurocolt\Documents\GitHub\moonman\build_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Eurocolt\Documents\GitHub\moonman\build_Data\Managed\System.dll (this message is harmless)
 desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-The referenced script on this Behaviour (Game Object 'DEBUG') is missing!
- 
-(Filename:  Line: 1743)
-
-UnloadTime: 4.886161 ms
+UnloadTime: 1.726790 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 2b24 -> priority: 1 
-  Thread -> id: 2294 -> priority: 1 
-SyntaxErrorException: unexpected symbol near '('
-  at MoonSharp.Interpreter.Tree.NodeBase.UnexpectedTokenType (MoonSharp.Interpreter.Tree.Token t) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.NodeBase.CheckTokenType (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, TokenType tokenType) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expressions.TableConstructor..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, Boolean shared) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.SimpleExp (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.SubExpr (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, Boolean isPrimary) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.Expr (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.ExprList (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.AssignmentStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, MoonSharp.Interpreter.Tree.Expression firstExpression, MoonSharp.Interpreter.Tree.Token first) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statement.CreateStatement (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, System.Boolean& forceLast) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.CompositeStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.ChunkStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Fast_Interface.Loader_Fast.LoadChunk (MoonSharp.Interpreter.Script script, MoonSharp.Interpreter.Debugging.SourceCode source, MoonSharp.Interpreter.Execution.VM.ByteCode bytecode) [0x00000] in <filename unknown>:0 
-UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
-UnityEngine.DebugLogHandler:LogException(Exception, Object)
-UnityEngine.Logger:LogException(Exception, Object)
-UnityEngine.Debug:LogException(Exception)
-UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
-UnityEngine.EventSystems.EventSystem:SetSelectedGameObject(GameObject, BaseEventData)
-UnityEngine.EventSystems.PointerInputModule:DeselectIfSelectionChanged(GameObject, BaseEventData)
-UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
-UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
-UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
-UnityEngine.EventSystems.StandaloneInputModule:Process()
-UnityEngine.EventSystems.EventSystem:Update()
- 
-(Filename:  Line: -1)
-
-SyntaxErrorException: unexpected symbol near '('
-  at MoonSharp.Interpreter.Tree.NodeBase.UnexpectedTokenType (MoonSharp.Interpreter.Tree.Token t) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.NodeBase.CheckTokenType (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, TokenType tokenType) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expressions.TableConstructor..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, Boolean shared) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.SimpleExp (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.SubExpr (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, Boolean isPrimary) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.Expr (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.ExprList (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.AssignmentStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, MoonSharp.Interpreter.Tree.Expression firstExpression, MoonSharp.Interpreter.Tree.Token first) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statement.CreateStatement (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, System.Boolean& forceLast) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.CompositeStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.ChunkStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Fast_Interface.Loader_Fast.LoadChunk (MoonSharp.Interpreter.Script script, MoonSharp.Interpreter.Debugging.SourceCode source, MoonSharp.Interpreter.Execution.VM.ByteCode bytecode) [0x00000] in <filename unknown>:0 
-UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
-UnityEngine.DebugLogHandler:LogException(Exception, Object)
-UnityEngine.Logger:LogException(Exception, Object)
-UnityEngine.Debug:LogException(Exception)
-UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
-UnityEngine.EventSystems.EventSystem:SetSelectedGameObject(GameObject, BaseEventData)
-UnityEngine.EventSystems.PointerInputModule:DeselectIfSelectionChanged(GameObject, BaseEventData)
-UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
-UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
-UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
-UnityEngine.EventSystems.StandaloneInputModule:Process()
-UnityEngine.EventSystems.EventSystem:Update()
- 
-(Filename:  Line: -1)
-
+  Thread -> id: 1d2c -> priority: 1 
+  Thread -> id: 4428 -> priority: 1 

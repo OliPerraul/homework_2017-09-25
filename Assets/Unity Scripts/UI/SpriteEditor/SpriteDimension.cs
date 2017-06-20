@@ -5,14 +5,12 @@ using UnityEngine.UI;
 
 public class SpriteDimension : MonoBehaviour {
 
-    private SpriteEditorController spriteEditorCtrl;
-
     private InputField xField;
     private int width;
 
     private InputField yField;
     private int height;
-
+    
 
     // Use this for initialization
     void Start ()
@@ -22,8 +20,6 @@ public class SpriteDimension : MonoBehaviour {
         
         xField.onEndEdit.AddListener(delegate { SaveSpriteDimensions(); }); //add listen to event
         yField.onEndEdit.AddListener(delegate { SaveSpriteDimensions(); }); //add listen to event
-
-        spriteEditorCtrl = GameObject.Find("SpriteEditorController").GetComponent<SpriteEditorController>();
 
     }
 	
@@ -45,8 +41,8 @@ public class SpriteDimension : MonoBehaviour {
         yField.text = height.ToString();
 
         SpriteIcon sprIc = transform.parent.GetComponent<SpriteIcon>();
-
-        spriteEditorCtrl.SaveDimensions(sprIc.sprite_name, width, height);
+   
+        SpriteEditorController.SaveDimensions(sprIc.sprite_name, width, height);
         
     }
 }

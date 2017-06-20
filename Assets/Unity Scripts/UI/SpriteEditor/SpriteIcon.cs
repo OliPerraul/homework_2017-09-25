@@ -11,20 +11,18 @@ public class SpriteIcon : MonoBehaviour
     static GameObject spriteIcons;//container
     static GameObject prefab;
 
-    static SpriteEditorController spriteEditorCtrl;
-
     public Sprite sprite;
     public string sprite_name;
     
     private Button button;
-    private InputField inputField;
     private SpriteName spriteName;
 
     void Start()
     {
         //add listener to on click event
-        button.onClick.AddListener(delegate { spriteEditorCtrl.SelectSprite(); });
+        button.onClick.AddListener(delegate { SpriteEditorController.SelectSprite(); });
         button.onClick.AddListener(delegate { SetSelectedOnClicked(); });
+       // button.onClick.AddListener(delegate { spriteName.SaveSpriteName(); });
     }
 
     //THIS IS NOT THE ONE ASSOCIATED WITH THE DATABASE
@@ -37,20 +35,22 @@ public class SpriteIcon : MonoBehaviour
 
     void Update()
     {
-        //set sprite name
-        sprite_name = spriteName.name;
-                
-        
-        //set icon image on the fly
-        if (selected.Equals(gameObject.name))
-        {
-            Texture2D tex;
-            if (Global.sprite_database.TryGetValue(inputField.text, out tex))
+     
+            //set sprite name
+            sprite_name = spriteName.text;
+
+            //set icon image on the fly
+            if (selected.Equals(gameObject.name))
             {
-                sprite = Sprite.Create(tex, new Rect(0f, 0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), Global.PPU);
-                button.image.sprite = sprite;
+                Texture2D tex;
+                if (Global.sprite_database.TryGetValue(spriteName.text, out tex))
+                {
+                    sprite = Sprite.Create(tex, new Rect(0f, 0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), Global.PPU);
+                    button.image.sprite = sprite;
+                }
             }
-        }
+           
+        
     }
 
 
@@ -58,17 +58,16 @@ public class SpriteIcon : MonoBehaviour
     {
         selected = gameObject.name;
     }
-    
+       
 
-    public static GameObject Create()//custom init
+    public static void Create(string name, Texture2D tex2d)//custom init
     {
         #region Init Statics
         if (spriteIcons == null)
             spriteIcons = GameObject.Find("SpriteIcons");
         if (prefab == null)
             prefab = Resources.Load("UI/SpriteIcon") as GameObject;
-        if (spriteEditorCtrl == null)
-            spriteEditorCtrl = GameObject.Find("SpriteEditorController").GetComponent<SpriteEditorController>();
+
 
         #endregion
 
@@ -76,22 +75,32 @@ public class SpriteIcon : MonoBehaviour
 
         //assign correct name
         newObject.name = prefab.name + spriteIcons.transform.childCount;
-                
+
         //access main component
         SpriteIcon spriteIcon = newObject.GetComponent<SpriteIcon>();
 
         #region init instance properties
         spriteIcon.button = spriteIcon.GetComponent<Button>();
-        spriteIcon.inputField = spriteIcon.GetComponentInChildren<InputField>();
         spriteIcon.spriteName = spriteIcon.GetComponentInChildren<SpriteName>();
+        spriteIcon.SetTempIconSprite(tex2d);
+
+        spriteIcon.spriteName.text = name;
+        spriteIcon.sprite_name = name;
+
+
         //..
         //..
         #endregion
+             
+        InputField width_field = spriteIcon.transform.GetChild(1).GetChild(0).GetComponent<InputField>();
+        InputField height_field = spriteIcon.transform.GetChild(1).GetChild(2).GetComponent<InputField>();
 
-        spriteIcon.SetTempIconSprite(Instantiate<Texture2D>(Global.sprite_default));
+        width_field.text = tex2d.width.ToString();
+        height_field.text = tex2d.height.ToString();
 
-        return newObject;
+
     }
+
 
 
 }

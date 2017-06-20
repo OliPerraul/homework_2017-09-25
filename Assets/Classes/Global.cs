@@ -6,14 +6,15 @@ public static class Global
 {
     //Pixel per unit
     public static int PPU = 16;
-
-
-    //
-    public static bool FLAG = false;
-
-
+    
+    //saved by user
     public static Dictionary<string, Texture2D> sprite_database = new Dictionary<string, Texture2D>();
     public static Dictionary<string, EntityScript> entity_database = new Dictionary<string, EntityScript>();
+
+    //collectible system
+    public static Dictionary<string, Texture2D> template_sprite_database = new Dictionary<string, Texture2D>();
+    public static Dictionary<string, EntityScript> template_entity_database = new Dictionary<string, EntityScript>();
+    
 
     //TODO INIT GLOBALS (GOBJ)
     public static Script main_script;
@@ -24,8 +25,7 @@ public static class Global
     public static string default_entity_code =
 @"= 
 {
-sprite = """",
-type = """",
+sprite = spr_new,
 x = getmousex(),
 y = getmousey(),
 
@@ -38,8 +38,6 @@ update = function(self)
 end,
 
 }";
-
-
-
+    
 
 }

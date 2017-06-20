@@ -46,19 +46,23 @@ public class PixelCanvas : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (tex2d != null)
+        try
         {
-            ColorTexture();
 
-            //create the edited sprite from tex2d 
-            sprite = Sprite.Create(tex2d, new Rect(0f, 0f, tex2d.width, tex2d.height), new Vector2(0.5f, 0.5f), Global.PPU);
+            if (tex2d != null)
+            {
+                ColorTexture();
 
-            spriteRend.sprite = sprite;
+                //create the edited sprite from tex2d 
+                sprite = Sprite.Create(tex2d, new Rect(0f, 0f, tex2d.width, tex2d.height), new Vector2(0.5f, 0.5f), Global.PPU);
+
+                spriteRend.sprite = sprite;
+            }
         }
+        catch { }
                        
     }
-
-
+    
 
     public void SetCurrEditedTex(Texture2D tex)
     {

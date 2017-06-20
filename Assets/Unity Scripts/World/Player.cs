@@ -15,8 +15,9 @@ public class Player : PhysicsObject
 
     /////Health System///
     private HealthBar healthBar;
+
     [SerializeField]
-    private int health;
+    public float HP = 1;
 
     private bool invulnerable;
 
@@ -33,6 +34,9 @@ public class Player : PhysicsObject
     protected override void Update()
     {
         base.Update();
+
+        healthBar.hide_percent = 1f - HP;
+
         UpdateShader();
 
         if (timer_glitch > 0)
@@ -138,8 +142,7 @@ public class Player : PhysicsObject
     {
         timer_glitch = glitch_time;
 
-        health--;
-        healthBar.hide_percent += enemy.damage;
+        HP = HP-enemy.damage;
         healthBar.GetHurt();
 
     }
