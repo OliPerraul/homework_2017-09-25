@@ -2,29 +2,29 @@ Initialize engine version: 5.6.1f1 (2860b30f0b54)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GT 525M (ID=0xdec)
+    Renderer: NVIDIA Quadro K2100M (ID=0x11fc)
     Vendor:   NVIDIA
-    VRAM:     978 MB
-    Driver:   21.21.13.7654
+    VRAM:     2007 MB
+    Driver:   25.21.14.2553
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Eurocolt\Documents\GitHub\moonman\build_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Eurocolt\Documents\GitHub\moonman\build_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Eurocolt\Documents\GitHub\moonman\build_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
-Loading C:\Users\Eurocolt\Documents\GitHub\moonman\build_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
-Platform assembly: C:\Users\Eurocolt\Documents\GitHub\moonman\build_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Eurocolt\Documents\GitHub\moonman\build_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Eurocolt\Documents\GitHub\moonman\build_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Eurocolt\Documents\GitHub\moonman\build_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Eurocolt\Documents\GitHub\moonman\build_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Eurocolt\Documents\GitHub\moonman\build_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.042 seconds
-Platform assembly: C:\Users\Eurocolt\Documents\GitHub\moonman\build_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Eurocolt\Documents\GitHub\moonman\build_Data\Managed\System.dll (this message is harmless)
-desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
+Platform assembly: C:\Users\bigol\Desktop\repos\unity-themanonthemoon\build_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\bigol\Desktop\repos\unity-themanonthemoon\build_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\bigol\Desktop\repos\unity-themanonthemoon\build_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\bigol\Desktop\repos\unity-themanonthemoon\build_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\bigol\Desktop\repos\unity-themanonthemoon\build_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\bigol\Desktop\repos\unity-themanonthemoon\build_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\bigol\Desktop\repos\unity-themanonthemoon\build_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\bigol\Desktop\repos\unity-themanonthemoon\build_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\bigol\Desktop\repos\unity-themanonthemoon\build_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\bigol\Desktop\repos\unity-themanonthemoon\build_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.021 seconds
+Platform assembly: C:\Users\bigol\Desktop\repos\unity-themanonthemoon\build_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\bigol\Desktop\repos\unity-themanonthemoon\build_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.726790 ms
+UnloadTime: 1.039400 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 1d2c -> priority: 1 
-  Thread -> id: 4428 -> priority: 1 
+  Thread -> id: 13f4 -> priority: 1 
+  Thread -> id: 2464 -> priority: 1 

@@ -2,125 +2,29 @@ Initialize engine version: 5.6.1f1 (2860b30f0b54)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GT 525M (ID=0xdec)
+    Renderer: NVIDIA Quadro K2100M (ID=0x11fc)
     Vendor:   NVIDIA
-    VRAM:     978 MB
-    Driver:   21.21.13.7654
+    VRAM:     2007 MB
+    Driver:   25.21.14.2553
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Eurocolt\Documents\GitHub\Moonman.exe\hello_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Eurocolt\Documents\GitHub\Moonman.exe\hello_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Eurocolt\Documents\GitHub\Moonman.exe\hello_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
-Loading C:\Users\Eurocolt\Documents\GitHub\Moonman.exe\hello_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
-Platform assembly: C:\Users\Eurocolt\Documents\GitHub\Moonman.exe\hello_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Eurocolt\Documents\GitHub\Moonman.exe\hello_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Eurocolt\Documents\GitHub\Moonman.exe\hello_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Eurocolt\Documents\GitHub\Moonman.exe\hello_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Eurocolt\Documents\GitHub\Moonman.exe\hello_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Eurocolt\Documents\GitHub\Moonman.exe\hello_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  1.355 seconds
-Platform assembly: C:\Users\Eurocolt\Documents\GitHub\Moonman.exe\hello_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Eurocolt\Documents\GitHub\Moonman.exe\hello_Data\Managed\System.dll (this message is harmless)
-desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
+Platform assembly: C:\Users\bigol\Desktop\repos\unity-themanonthemoon\hello_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\bigol\Desktop\repos\unity-themanonthemoon\hello_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\bigol\Desktop\repos\unity-themanonthemoon\hello_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\bigol\Desktop\repos\unity-themanonthemoon\hello_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\bigol\Desktop\repos\unity-themanonthemoon\hello_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\bigol\Desktop\repos\unity-themanonthemoon\hello_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\bigol\Desktop\repos\unity-themanonthemoon\hello_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\bigol\Desktop\repos\unity-themanonthemoon\hello_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\bigol\Desktop\repos\unity-themanonthemoon\hello_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\bigol\Desktop\repos\unity-themanonthemoon\hello_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.021 seconds
+Platform assembly: C:\Users\bigol\Desktop\repos\unity-themanonthemoon\hello_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\bigol\Desktop\repos\unity-themanonthemoon\hello_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 58.554897 ms
+UnloadTime: 1.024500 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 2484 -> priority: 1 
-  Thread -> id: 2e64 -> priority: 1 
-SyntaxErrorException: unexpected symbol near 'y'
-  at MoonSharp.Interpreter.Tree.NodeBase.UnexpectedTokenType (MoonSharp.Interpreter.Tree.Token t) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.NodeBase.CheckTokenType (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, TokenType tokenType) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expressions.TableConstructor..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, Boolean shared) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.SimpleExp (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.SubExpr (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, Boolean isPrimary) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.Expr (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.ExprList (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.AssignmentStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, MoonSharp.Interpreter.Tree.Expression firstExpression, MoonSharp.Interpreter.Tree.Token first) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statement.CreateStatement (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, System.Boolean& forceLast) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.CompositeStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.ChunkStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Fast_Interface.Loader_Fast.LoadChunk (MoonSharp.Interpreter.Script script, MoonSharp.Interpreter.Debugging.SourceCode source, MoonSharp.Interpreter.Execution.VM.ByteCode bytecode) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-SyntaxErrorException: unexpected symbol near 'y'
-  at MoonSharp.Interpreter.Tree.NodeBase.UnexpectedTokenType (MoonSharp.Interpreter.Tree.Token t) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.NodeBase.CheckTokenType (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, TokenType tokenType) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expressions.TableConstructor..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, Boolean shared) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.SimpleExp (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.SubExpr (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, Boolean isPrimary) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.Expr (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.ExprList (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.AssignmentStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, MoonSharp.Interpreter.Tree.Expression firstExpression, MoonSharp.Interpreter.Tree.Token first) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statement.CreateStatement (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, System.Boolean& forceLast) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.CompositeStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.ChunkStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Fast_Interface.Loader_Fast.LoadChunk (MoonSharp.Interpreter.Script script, MoonSharp.Interpreter.Debugging.SourceCode source, MoonSharp.Interpreter.Execution.VM.ByteCode bytecode) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-SyntaxErrorException: unexpected symbol near 'y'
-  at MoonSharp.Interpreter.Tree.NodeBase.UnexpectedTokenType (MoonSharp.Interpreter.Tree.Token t) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.NodeBase.CheckTokenType (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, TokenType tokenType) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expressions.TableConstructor..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, Boolean shared) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.SimpleExp (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.SubExpr (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, Boolean isPrimary) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.Expr (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.ExprList (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.AssignmentStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, MoonSharp.Interpreter.Tree.Expression firstExpression, MoonSharp.Interpreter.Tree.Token first) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statement.CreateStatement (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, System.Boolean& forceLast) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.CompositeStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.ChunkStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Fast_Interface.Loader_Fast.LoadChunk (MoonSharp.Interpreter.Script script, MoonSharp.Interpreter.Debugging.SourceCode source, MoonSharp.Interpreter.Execution.VM.ByteCode bytecode) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-SyntaxErrorException: unexpected symbol near 'y'
-  at MoonSharp.Interpreter.Tree.NodeBase.UnexpectedTokenType (MoonSharp.Interpreter.Tree.Token t) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.NodeBase.CheckTokenType (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, TokenType tokenType) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expressions.TableConstructor..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, Boolean shared) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.SimpleExp (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.SubExpr (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, Boolean isPrimary) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.Expr (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.ExprList (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.AssignmentStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, MoonSharp.Interpreter.Tree.Expression firstExpression, MoonSharp.Interpreter.Tree.Token first) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statement.CreateStatement (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, System.Boolean& forceLast) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.CompositeStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.ChunkStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Fast_Interface.Loader_Fast.LoadChunk (MoonSharp.Interpreter.Script script, MoonSharp.Interpreter.Debugging.SourceCode source, MoonSharp.Interpreter.Execution.VM.ByteCode bytecode) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-SyntaxErrorException: unexpected symbol near 'y'
-  at MoonSharp.Interpreter.Tree.NodeBase.UnexpectedTokenType (MoonSharp.Interpreter.Tree.Token t) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.NodeBase.CheckTokenType (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, TokenType tokenType) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expressions.TableConstructor..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, Boolean shared) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.SimpleExp (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.SubExpr (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, Boolean isPrimary) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.Expr (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.ExprList (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.AssignmentStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, MoonSharp.Interpreter.Tree.Expression firstExpression, MoonSharp.Interpreter.Tree.Token first) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statement.CreateStatement (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, System.Boolean& forceLast) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.CompositeStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.ChunkStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Fast_Interface.Loader_Fast.LoadChunk (MoonSharp.Interpreter.Script script, MoonSharp.Interpreter.Debugging.SourceCode source, MoonSharp.Interpreter.Execution.VM.ByteCode bytecode) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-SyntaxErrorException: unexpected symbol near 'y'
-  at MoonSharp.Interpreter.Tree.NodeBase.UnexpectedTokenType (MoonSharp.Interpreter.Tree.Token t) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.NodeBase.CheckTokenType (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, TokenType tokenType) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expressions.TableConstructor..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, Boolean shared) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.SimpleExp (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.SubExpr (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, Boolean isPrimary) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.Expr (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Expression.ExprList (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.AssignmentStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, MoonSharp.Interpreter.Tree.Expression firstExpression, MoonSharp.Interpreter.Tree.Token first) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statement.CreateStatement (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext, System.Boolean& forceLast) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.CompositeStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Statements.ChunkStatement..ctor (MoonSharp.Interpreter.Execution.ScriptLoadingContext lcontext) [0x00000] in <filename unknown>:0 
-  at MoonSharp.Interpreter.Tree.Fast_Interface.Loader_Fast.LoadChunk (MoonSharp.Interpreter.Script script, MoonSharp.Interpreter.Debugging.SourceCode source, MoonSharp.Interpreter.Execution.VM.ByteCode bytecode) [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
+  Thread -> id: 2478 -> priority: 1 
+  Thread -> id: 3120 -> priority: 1 
